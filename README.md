@@ -8,7 +8,8 @@ syntax and organized as a small modular project.
 ## Features
 
 - **Command (Win) as the primary modifier** for `C / X / V / Z / A / S / F / T / W / N / Q`
-  (copy, cut, paste, undo, select all, save, find, new tab, close, new window, quit).
+  (copy, cut, paste, undo, select all, save, find, new tab, close, new window, quit),
+  plus `Cmd+Shift+Z` for redo.
 - **Option (Alt) left native** - menu access, Alt+F4, Alt+Tab all work exactly
   as before.
 - **Line navigation**: `Cmd+Left/Right` = beginning/end of line, with `Shift`
@@ -17,6 +18,7 @@ syntax and organized as a small modular project.
 - **Document navigation**: `Cmd+Up/Down` = beginning/end of document.
 - **Line deletion**: `Cmd+Backspace` deletes to the start of the line,
   `Cmd+Delete` deletes to the end.
+- **`Cmd+H` minimizes** the active window.
 - **`Cmd+Tab` opens a macOS-style app switcher** - drives the classic
   Windows Alt-Tab switcher instead of Task View. Keep holding Cmd and tap
   `Tab` to cycle forward, add `Shift` to reverse, and release Cmd to
@@ -40,7 +42,7 @@ config.ahk              Feature toggles (edit this to customize)
 install.ps1             Optional installer (adds a Startup shortcut)
 modules/
   fullscreen.ahk        Shared fullscreen/game detection
-  modifiers.ahk         Cmd+C/X/V/Z/A/S/F/T/W/N/Q
+  modifiers.ahk         Cmd+C/X/V/Z/A/S/F/T/W/N/Q, Cmd+Shift+Z
   app-switcher.ahk      Cmd+Tab macOS-style app switcher (Alt-Tab)
   navigation.ahk        Cmd/Option + arrow key navigation
   text-editing.ahk       Cmd+Backspace/Delete line editing
@@ -78,6 +80,7 @@ class Config
     static EnableWordNavigation     := true
     static EnableDocumentNavigation := true
     static EnableLineDeletion       := true
+    static EnableMinimize           := true
     static EnableExplorerTweaks := true
     static EnableTerminalTweaks := true
     static EnableVSCodeTweaks   := true

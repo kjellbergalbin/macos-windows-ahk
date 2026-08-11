@@ -23,17 +23,31 @@
 ; =============================================================================
 
 ModifiersEnabled() => Config.SwapModifiers && Config.EnableAppShortcuts && RemapsAllowed()
+MinimizeEnabled() => Config.SwapModifiers && Config.EnableMinimize && RemapsAllowed()
 
 #HotIf ModifiersEnabled()
 #c::Send "^c"           ; Cmd+C -> Copy
 #x::Send "^x"           ; Cmd+X -> Cut
 #v::Send "^v"           ; Cmd+V -> Paste
 #z::Send "^z"           ; Cmd+Z -> Undo
+#+z::Send "^y"          ; Cmd+Shift+Z -> Redo
 #a::Send "^a"           ; Cmd+A -> Select All
 #s::Send "^s"           ; Cmd+S -> Save
 #f::Send "^f"           ; Cmd+F -> Find
+#d::Send "^d"           ; Cmd+D -> Duplicate
 #t::Send "^t"           ; Cmd+T -> New Tab
 #w::Send "^w"           ; Cmd+W -> Close Tab/Window
 #n::Send "^n"           ; Cmd+N -> New Window
 #q::Send "!{F4}"        ; Cmd+Q -> Quit (closest Windows equivalent: close window)
+#i::Send "^i"           ; Cmd+I -> Italic text
+#b::Send "^b"           ; Cmd+B -> Bold text
+#HotIf
+
+; Cmd+H -> minimize the active window (kept as its own toggle/#HotIf since,
+; unlike the shortcuts above, it has no Ctrl equivalent to send - it calls
+; WinMinimize directly). WinMinimize works on a fullscreen window exactly
+; like any other, so this needs no special-casing to satisfy "fullscreen or
+; not".
+#HotIf MinimizeEnabled()
+#h::WinMinimize("A")    ; Cmd+H -> Minimize
 #HotIf

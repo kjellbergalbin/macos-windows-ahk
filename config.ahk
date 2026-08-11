@@ -21,12 +21,13 @@ class Config
     static DisableInFullscreen  := true
 
     ; --- Feature groups ------------------------------------------------------
-    static EnableAppShortcuts       := true ; Cmd+C/X/V/Z/A/S/F/T/W/N/Q
+    static EnableAppShortcuts       := true ; Cmd+C/X/V/Z/A/S/F/T/W/N/Q, Cmd+Shift+Z
     static EnableAppSwitcher        := true ; Cmd+Tab (+Shift) = macOS-style Alt-Tab switcher
     static EnableLineNavigation     := true ; Cmd+Left/Right (+Shift) = start/end of line
     static EnableWordNavigation     := true ; Option+Left/Right (+Shift) = move by word
     static EnableDocumentNavigation := true ; Cmd+Up/Down (+Shift) = start/end of document
     static EnableLineDeletion       := true ; Cmd+Backspace/Delete = delete to start/end of line
+    static EnableMinimize           := true ; Cmd+H = minimize the active window
 
     ; --- Application-specific tweaks -----------------------------------------
     static EnableExplorerTweaks := true ; File Explorer (Finder-style navigation)
