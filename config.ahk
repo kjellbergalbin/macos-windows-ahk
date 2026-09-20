@@ -29,6 +29,12 @@ class Config
     static EnableLineDeletion       := true ; Cmd+Backspace/Delete = delete to start/end of line
     static EnableMinimize           := true ; Cmd+H = minimize the active window
 
+    ; --- Window management ---------------------------------------------------
+    static EnableWindowManagement := true ; Master switch for Rectangle-inspired window controls
+    static EnableDisplayControls  := true ; Move between displays, maximize/restore, maximize height
+    static EnableWindowTiling     := true ; Halves and corners
+    static EnableWideLayouts      := true ; Thirds and two-thirds layouts
+
     ; --- Application-specific tweaks -----------------------------------------
     static EnableExplorerTweaks := true ; File Explorer (Finder-style navigation)
     static EnableTerminalTweaks := true ; Windows Terminal

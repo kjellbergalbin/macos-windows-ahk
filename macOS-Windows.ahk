@@ -33,6 +33,7 @@ Persistent
 #Include modules\modifiers.ahk
 #Include modules\app-switcher.ahk
 #Include modules\navigation.ahk
+#Include modules\window-management.ahk
 #Include modules\text-editing.ahk
 
 ; -----------------------------------------------------------------------------

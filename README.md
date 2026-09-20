@@ -19,6 +19,9 @@ syntax and organized as a small modular project.
 - **Line deletion**: `Cmd+Backspace` deletes to the start of the line,
   `Cmd+Delete` deletes to the end.
 - **`Cmd+H` minimizes** the active window.
+- **Rectangle-inspired window management** — move windows between monitors,
+  maximize/restore, tile to halves or corners, and use thirds/two-thirds layouts.
+  Each window-management group has its own toggle.
 - **`Cmd+Tab` opens a macOS-style app switcher** - drives the classic
   Windows Alt-Tab switcher instead of Task View. Keep holding Cmd and tap
   `Tab` to cycle forward, add `Shift` to reverse, and release Cmd to
@@ -91,6 +94,66 @@ class Config
 Set any value to `false` to disable that feature, then reload the script
 (right-click its tray icon > Reload This Script), or use one of the methods
 below.
+
+## Window management shortcuts
+
+All window management shortcuts use `Ctrl+Option+Command` on a Mac-layout
+keyboard (`Ctrl+Alt+Win` in Windows terms). This leaves native Windows
+`Win+Arrow` behavior and the project's Cmd/Option text-navigation mappings
+untouched. They are disabled when `DisableInFullscreen` is enabled and the
+active window is fullscreen.
+
+### Core display controls (`EnableDisplayControls`)
+
+| Shortcut | Action |
+|---|---|
+| `Ctrl+Option+Cmd+Left` | Move the active window to the display on the left |
+| `Ctrl+Option+Cmd+Right` | Move the active window to the display on the right |
+| `Ctrl+Option+Enter` | Maximize the active window; press again to restore it |
+| `Ctrl+Option+Cmd+H` | Maximize the active window's height only |
+
+Moving between displays retains the window's relative placement and size,
+then scales it to the target display's usable work area. A maximized window
+stays maximized after moving.
+
+### Everyday tiling (`EnableWindowTiling`)
+
+The letter layout mirrors screen position: `Q/E` are the top corners,
+`Z/C` the bottom corners, and `W/A/S/D` the four edges.
+
+| Shortcut | Action |
+|---|---|
+| `Ctrl+Option+Cmd+A` / `D` | Left / right half |
+| `Ctrl+Option+Cmd+W` / `S` | Top / bottom half |
+| `Ctrl+Option+Cmd+Q` / `E` | Top-left / top-right quarter |
+| `Ctrl+Option+Cmd+Z` / `C` | Bottom-left / bottom-right quarter |
+
+### Wide-screen layouts (`EnableWideLayouts`)
+
+| Shortcut | Action |
+|---|---|
+| `Ctrl+Option+Cmd+1` / `2` / `3` | Left / center / right third |
+| `Ctrl+Option+Cmd+Shift+1` | Left two-thirds |
+| `Ctrl+Option+Cmd+Shift+2` | Center two-thirds |
+| `Ctrl+Option+Cmd+Shift+3` | Right two-thirds |
+
+Set `EnableWindowManagement` to `false` to disable every window-management
+shortcut at once. The three group toggles let you retain only the layouts you
+use.
+
+### Verify on Windows
+
+After pulling the change on the native Windows clone, reload the script with
+`Cmd+Option+R`. Test each selected shortcut with a normal resizable window:
+
+1. Confirm left/right display moves choose the physically adjacent monitor,
+   including when the secondary display is positioned left of the primary one.
+2. Confirm `Ctrl+Option+Enter` alternates between maximized and restored
+   bounds, and that moving a maximized window preserves its maximized state.
+3. Confirm tiles use the monitor work area and do not cover the taskbar.
+4. Confirm `Win+Arrow` retains its native Windows behavior.
+5. With a fullscreen game or app active, confirm these shortcuts are ignored
+   when `DisableInFullscreen` is enabled.
 
 ## Updating after making changes
 
