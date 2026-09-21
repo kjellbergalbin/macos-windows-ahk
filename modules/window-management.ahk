@@ -19,10 +19,12 @@ WideLayoutsEnabled() => WindowManagementEnabled() && Config.EnableWideLayouts
 ^!Enter::ToggleActiveWindowMaximize()
 ^!#h::MaximizeActiveWindowHeight()
 
-; --- macOS-style Alt+Cmd+Left/Right: always ½ snap (no cycling) -------------
+; --- macOS-style (Rectangle-compatible) snapping: Ctrl+Opt navigation ----------
 #HotIf WindowManagementEnabled()
-#!Left::TileActiveWindow(0, 0, 0.5, 1)
-#!Right::TileActiveWindow(0.5, 0, 0.5, 1)
+^!Left::TileActiveWindow(0, 0, 0.5, 1)        ; Left half
+^!Right::TileActiveWindow(0.5, 0, 0.5, 1)     ; Right half
+^!Up::TileActiveWindow(0, 0, 1, 0.5)           ; Top half
+^!Down::TileActiveWindow(0, 0.5, 1, 0.5)       ; Bottom half
 
 ; --- Everyday tiling ---------------------------------------------------------
 #HotIf WindowTilingEnabled()
