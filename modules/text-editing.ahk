@@ -14,4 +14,6 @@ LineDeleteEnabled() => Config.SwapModifiers && Config.EnableLineDeletion && Rema
 #HotIf LineDeleteEnabled()
 #Backspace::Send "+{Home}{Backspace}"
 #Delete::Send "+{End}{Delete}"
+!Backspace::Send "^{Backspace}"      ; Alt+Backspace = delete word backward (macOS Opt+Backspace)
+!Delete::Send "^{Delete}"           ; Alt+Delete = delete word forward
 #HotIf
