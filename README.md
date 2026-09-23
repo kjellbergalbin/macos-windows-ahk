@@ -18,6 +18,8 @@ syntax and organized as a small modular project.
 - **Document navigation**: `Cmd+Up/Down` = beginning/end of document.
 - **Line deletion**: `Cmd+Backspace` deletes to the start of the line,
   `Cmd+Delete` deletes to the end.
+- **Correct Swedish ISO angle brackets** — the physical key between left Shift
+  and `Z` produces `<` / `>` on Apple Magic Keyboards in Windows.
 - **`Cmd+H` minimizes** the active window.
 - **Rectangle-inspired window management** — move windows between monitors,
   maximize/restore, tile to halves or corners, and use thirds/two-thirds layouts.
@@ -45,6 +47,7 @@ config.ahk              Feature toggles (edit this to customize)
 install.ps1             Optional installer (adds a Startup shortcut)
 modules/
   fullscreen.ahk        Shared fullscreen/game detection
+  keyboard-layout.ahk   Swedish ISO < / > correction for Apple keyboards
   modifiers.ahk         Cmd+C/X/V/Z/A/S/F/T/W/N/Q, Cmd+Shift+Z
   app-switcher.ahk      Cmd+Tab macOS-style app switcher (Alt-Tab)
   navigation.ahk        Cmd/Option + arrow key navigation

@@ -30,6 +30,7 @@ Persistent
 #Include modules\browser.ahk
 
 ; General-purpose remaps (load after, so app-specific rules win on overlap)
+#Include modules\keyboard-layout.ahk
 #Include modules\modifiers.ahk
 #Include modules\app-switcher.ahk
 #Include modules\navigation.ahk

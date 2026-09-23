@@ -55,6 +55,15 @@ class WindowManagementContractTests(unittest.TestCase):
         self.assertIn("GetActiveWindowMonitor", module)
         self.assertIn("FindAdjacentMonitor", module)
 
+    def test_iso_angle_bracket_key_matches_swedish_macos_layout(self):
+        entrypoint = source("macOS-Windows.ahk")
+        module = source("modules/keyboard-layout.ahk")
+
+        self.assertIn("#Include modules\\keyboard-layout.ahk", entrypoint)
+        self.assertIn("#HotIf RemapsAllowed()", module)
+        self.assertIn('SC056::SendText "<"', module)
+        self.assertIn('+SC056::SendText ">"', module)
+
 
 if __name__ == "__main__":
     unittest.main()
